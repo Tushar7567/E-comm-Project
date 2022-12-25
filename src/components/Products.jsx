@@ -17,6 +17,10 @@ const Products = ({ cat, filters }) => {
 
 
 
+  // http://localhost:5000/
+  //  "https://e-comm-backend-meks.onrender.com/api/products"
+
+
   const getProducts = async () => {
     try {
       const res = await axios.get(
