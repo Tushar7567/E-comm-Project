@@ -93,7 +93,7 @@ const Register = () => {
         // const {email, accessToken} = res.data;
         // if()
         // localStorage.setItem("userToken", JSON.stringify([{email},{accessToken}]))
-        navigate("/login");
+        navigate("/");
         // data.reset();
       })
       .catch((err) => {

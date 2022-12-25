@@ -109,7 +109,7 @@ const Login = () => {
         const {email, accessToken} = res.data;
         // if()
         localStorage.setItem("userToken", JSON.stringify([{email},{accessToken}]))
-        navigate("/");
+        navigate("/home");
         // data.reset();
       })
       .catch((err) => {

@@ -55,7 +55,7 @@ const Success = () => {
    <Navbar />
      <div style={{margin: "auto", display: "flex", flexDirection: "column"}}>
       <button style={{fontSize: "30px",backgroundColor: "green", color: "white"}}>Payment Successful</button>
-      <button onClick={()=>{navigate("/")}}>Back to home</button>
+      <button onClick={()=>{navigate("/home")}}>Back to home</button>
     
     </div>
     <Footer />
