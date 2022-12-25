@@ -46,7 +46,7 @@ export const sliderItems = [
       id: "63a2eb30b4d220ff3ed8ffe4",
       img: "https://images.pexels.com/photos/2897521/pexels-photo-2897521.jpeg?auto=compress&cs=tinysrgb&w=600",
       title: "JOCKY JEANS",
-      cat:"pants"
+      cat:"pant"
     },
     {
       id: "63a20392dfdfd7e213d0003c",
