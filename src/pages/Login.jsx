@@ -94,7 +94,7 @@ const Login = () => {
     e.preventDefault();
     // const {email, password } = data;
 
-    await publicRequest.post("/auth/login", {
+    await publicRequest.post("/auth/", {
       username,
       password,
     })
