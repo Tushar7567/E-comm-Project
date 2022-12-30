@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const BASE_URL = "https://e-comm-backend-meks.onrender.com/api";
+// const BASE_URL = "http://localhost:5000/api";
+
 
 
 const user = JSON.parse(localStorage.getItem("userToken")) ? JSON.parse(localStorage.getItem("userToken")) : [0,{accessToken: 1}] ;

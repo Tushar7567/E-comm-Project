@@ -124,7 +124,8 @@ const Login = () => {
         <Title>SIGN IN</Title>
         <Form>
           <Input
-            placeholder="username"
+            placeholder="Email"
+            type="email"
             onChange={(e) => setUsername(e.target.value)}
             required
           />

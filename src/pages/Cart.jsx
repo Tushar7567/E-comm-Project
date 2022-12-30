@@ -9,6 +9,7 @@ import StripeCheckout from "react-stripe-checkout";
 import { useState, useEffect } from "react";
 import { userRequest } from "../requestMethods";
 import { useNavigate } from 'react-router-dom';
+// import { DelProduct } from "../redux/cartRedux";
 // import Stripe from "stripe";
 
 const Container = styled.div``;
@@ -183,6 +184,7 @@ const Cart = () => {
   
         // console.log(res.data)
         console.log("payment success")
+        // DelProduct({...cart.products})
         navigate("/success")
       } catch(err) {console.log(err)}
     }
@@ -214,7 +216,7 @@ const Cart = () => {
                       <b>Product:</b> {product.title}
                     </ProductName>
                     <ProductId>
-                      <b>ID:</b> {product._id}
+                      {/* <b>ID:</b> {product._id} */}
                     </ProductId>
                     <ProductColor color={product.color} />
                     <ProductSize>
