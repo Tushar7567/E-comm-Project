@@ -6,6 +6,8 @@ import { mobile } from "../responsive";
 import { publicRequest } from "../requestMethods";
 import { useNavigate } from "react-router-dom";
 import localStorage from "redux-persist/es/storage";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../redux/userRedux";
 
 // https://images.pexels.com/photos/3193731/pexels-photo-3193731.jpeg?auto=compress&cs=tinysrgb&w=600
 
@@ -76,9 +78,9 @@ const Link = styled.a`
 
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  // const dispatch = useDispatch();
+  const [username, setUsername] = useState("Tushar@gmail.com");
+  const [password, setPassword] = useState("prepbytes");
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   // const { isFetching, error } = useSelector((state) => state.user);
 
@@ -109,6 +111,7 @@ const Login = () => {
         const {email, accessToken} = res.data;
         // if()
         localStorage.setItem("userToken", JSON.stringify([{email},{accessToken}]))
+        dispatch(loginSuccess(res.data));
         navigate("/home");
         // data.reset();
       })
@@ -126,12 +129,14 @@ const Login = () => {
           <Input
             placeholder="Email"
             type="email"
+            defaultValue={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
           <Input
             placeholder="password"
             type="password"
+            defaultValue={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />

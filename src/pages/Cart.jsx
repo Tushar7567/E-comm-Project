@@ -193,8 +193,8 @@ const Cart = () => {
   }, [stripeToken, cart.total, navigate]);
   return (
     <Container>
-      <Navbar />
-      <Announcement />
+      {/* <Navbar /> */}
+      {/* <Announcement /> */}
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
@@ -271,7 +271,7 @@ const Cart = () => {
           </Summary>
         </Bottom>
       </Wrapper>
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 };

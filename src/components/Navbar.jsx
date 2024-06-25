@@ -3,11 +3,13 @@ import { Search, ShoppingCartOutlined } from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { loginSuccess } from "../redux/userRedux";
 
 const Container = styled.div`
-  height: 90px;
+  height: 60px;
+  background-color: aliceblue;
   ${mobile({ height: "50px" })}
 `;
 
@@ -41,6 +43,7 @@ const SearchContainer = styled.div`
 
 const Input = styled.input`
   border: none;
+  background-color: inherit;
   ${mobile({ width: "50px" })}
 `;
 
@@ -51,6 +54,7 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
+  margin: 0 !important;
   ${mobile({ fontSize: "24px" })}
 `;
 const Right = styled.div`
@@ -70,6 +74,14 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity)
+  const user = useSelector((state) => state.user.currentUser)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const logout = () =>{
+    dispatch(loginSuccess({}));
+    navigate("/login")
+  }
   return (
     <Container>
       <Wrapper>
@@ -84,8 +96,16 @@ const Navbar = () => {
           <Logo>SCAPE</Logo>
         </Center>
         <Right>
+          {!user ? <>
           <Link to="/register" style={{color: "black", textDecoration: "none"}}><MenuItem>REGISTER</MenuItem> </Link>
           <Link to='/' style={{color: "black", textDecoration: "none"}}> <MenuItem>SIGN IN</MenuItem></Link>
+          </>
+          :
+          <>
+          <span>Hi {user?.username}</span>
+          <button onClick={logout}>logout</button>
+          </>
+          }
           
           <Link to="/cart">
           <MenuItem>
